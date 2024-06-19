@@ -3,3 +3,4 @@
 /.env/
 copygit.py
 __pycache__/
+*.sqlite3
