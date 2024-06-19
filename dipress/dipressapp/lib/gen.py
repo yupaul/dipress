@@ -13,23 +13,25 @@ def get_wikipedia_content(search_query):
 
 def generate(search_query):
     page = get_wikipedia_content(search_query)
-    x = re.compile("([a-zA-Z0-9']+[.?!,]?)+")
-    t = x.findall(page.content)
-    m = {}
+    if not page or not page.content or len(page.content) == 0:
+        return False
+    regex = re.compile("([a-zA-Z0-9']+[.?!,]?)+")
+    results = regex.findall(page.content)
+    num_results = len(results)
+    next_words = {}
     length = random.randint(80, 120)
-    for i in range(len(t)):
-        w = []
-        c = t[i]
-        for y in range(len(t) - 1):
-            if c == t[y]:
-                w.append(str(t[y + 1]))
-        m[c] = w
+    for i in range(num_results):
+        w = []        
+        for y in range(num_results - 1):
+            if results[y].lower() == results[i].lower():
+                w.append(str(results[y + 1]))
+        next_words[results[i]] = w
     content = []
-    x = random.choice(list(m.keys()))
+    x = random.choice(list(next_words.keys()))
     for i in range(length):
-        if len(m[x]) == 0:
+        if len(next_words[x]) == 0:
             break
-        y = random.choice(m[x])
+        y = random.choice(next_words[x])
         content.append(y)
         x = y
     return page.url, ' '.join(content)
