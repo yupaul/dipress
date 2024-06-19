@@ -1,0 +1,5 @@
+*.bat
+.idea/
+/.env/
+copygit.py
+__pycache__/
