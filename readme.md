@@ -14,6 +14,4 @@ This is a very basic Django REST Framework app. User can post a query, and the a
 * [/read/](https://dipress.os32.com/read/9/?format=json)
 * [/create/](https://dipress.os32.com/create/)
 
-[The form to POST to /create/](https://dipress.os32.com/)
-
-Dome is being hosted on a DigitalOcean Droplet.
+Demo is being hosted on a DigitalOcean Droplet.
