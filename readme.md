@@ -11,7 +11,7 @@ This is a very basic Django REST Framework app. User can post a query, and the a
 ## Demo
 
 * [/list/](https://dipress.os32.com/list/)
-* [/read/](https://dipress.os32.com:8000/read/)
+* [/read/](https://dipress.os32.com/read/)
 * [/create/](https://dipress.os32.com/create/)
 
 [The form to POST to /create/](https://dipress.os32.com/)
