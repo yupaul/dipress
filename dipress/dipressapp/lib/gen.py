@@ -4,7 +4,7 @@ import wikipedia
 from collections import defaultdict
 
 def get_wikipedia_content(search_query):
-    search_results = wikipedia.search(query=search_query, results=1)  # Get the top result
+    search_results = wikipedia.search(query=search_query, results=1)
 
     if not search_results or not len(search_results):
         return ''
@@ -24,17 +24,17 @@ def generate(search_query):
     length = random.randint(150, 250)
 
     for i in range(len(words) - 2):
-        k = tuple(words[i:i+2])
+        k = tuple(map(lambda _w: _w.lower(), words[i:i+2]))
         mchain[k].append(words[i+2])
     
     curr = random.choice(list(mchain.keys()))
     output = list(curr)
     
-    for i in range(length):  # Limit the length of the generated text
+    for i in range(length):
         try:
             _word = random.choice(mchain[curr])
             output.append(_word)
-            curr = tuple([curr[1], _word])
+            curr = tuple(map(lambda _w: _w.lower(), [curr[1], _word]))
         except Exception:
             break  
 
