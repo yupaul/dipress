@@ -4,3 +4,4 @@
 copygit.py
 __pycache__/
 *.sqlite3
+_mats/
